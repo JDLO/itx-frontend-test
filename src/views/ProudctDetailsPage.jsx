@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { data, Link, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { productService } from "../services/productService";
 
