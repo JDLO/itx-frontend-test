@@ -14,7 +14,7 @@ El proyecto cuenta con los cuatro scripts obligatorios requeridos por la especif
 2. **`npm run build`** (BUILD - Compilación):  
    Optimiza, minifica y empaqueta la aplicación para entornos de producción dentro del directorio `/dist`.
    
-3. **`npm run preview`** (TEST - Lanzamiento de Tests):  
+3. **`npm vitest` || `npx vitest`** (TEST - Lanzamiento de Tests):  
    Ejecuta la suite de pruebas unitarias implementada con **Vitest** (comprobando el correcto funcionamiento del borrado de caché y tiempos de expiración).
    
 4. **`npm run lint`** (LINT - Comprobación de Código):  
