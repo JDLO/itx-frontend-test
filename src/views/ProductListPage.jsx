@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { productService } from "../services/productService";
 import SearchBar from "../componets/SearchBar";
+import { Link } from "react-router-dom";
 
 function ProductListPage() {
     const [products, setProducts] = useState([]);
@@ -35,30 +36,26 @@ function ProductListPage() {
             <div style ={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                gap: '20px'
+                gap: '20px',
+                padding: '20px'
             }}>
                 {filteredProducts.map (product => (
-                    <div 
-                        key={product.id}
-                        style={{
-                            border: '1px solid #ddd',
-                            padding: '15px',
-                            borderRadius: '8px',
-                            textAlign: 'center'
-                        }}>
-                        <Link
-                            to={`/product/${product.id}`}
+                    <div>
+                        <div
+                            key={product.id}
                             style={{
-                                display: 'inline-block',
-                                marginTop: '10px',
-                                padding: '8px 12px',
-                                backgroundColor: '#0070f3',
-                                color: '#fff',
-                                textDecoration: 'none',
-                                borderRadius: '4px'
+                                border: '1px solid #ddd',
+                                padding: '15px',
+                                borderRadius: '8px',
+                                textAlign: 'center'
                             }}>
-                            Ver detalles
-                        </Link>
+                            <Link
+                                to={`/product/${product.id}`}>
+                                <img src={product.imgUrl} />
+                            </Link>
+                            <h3>{product.model}</h3>
+                            <p>$ {product.price}</p>
+                        </div>
                     </div>
                 ))}
             </div>
