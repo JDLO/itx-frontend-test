@@ -5,9 +5,7 @@ export const productService = {
         const cacheKey = 'product_list';
         const cacheData = cacheManager.get(cacheKey);
 
-        if(cacheData) {
-            return cacheData;
-        }
+        if(cacheData) return cacheData;
 
         const response  = await fetch('/api/product');
         if(!response.ok) throw new Error('Error al obtener productos');
@@ -18,13 +16,13 @@ export const productService = {
         return data;
     },
 
-    getProductById: async () =>{
-        const cacheKey = `prodcut_detail_{id}`;
+    getProductById: async (id) =>{
+        const cacheKey = `prodcut_detail_${id}`;
         const cacheData = cacheManager.get(cacheKey);
 
         if(cacheData) return cacheData;
 
-        const response = await fetch(`/api/product/{id}`);
+        const response = await fetch(`/api/product/${id}`);
         if(!response.ok) throw new Error('Error al obtener el detalle del producto');
 
         const data = await response.json();
