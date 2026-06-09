@@ -5,7 +5,8 @@ export const CartContext = createContext();
 export function CartProvider({ children }){
     const [cartCount, setCartCount] = useState (() => {
         const savedCount = localStorage.getItem('cart_count');
-        return savedCount ? parseInt(savedCount, 10) : 0;
+        const parsed = parseInt(savedCount, 10);
+        return Number.isNaN(parsed) ? 0 : parsed;
     });
 
     useEffect(() => {
