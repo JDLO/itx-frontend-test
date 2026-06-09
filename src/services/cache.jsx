@@ -4,7 +4,7 @@ export const cacheManager = {
     set: (key, data) => {
         const cacheObject = {
             data,
-            itemstamp: Date.now()
+            timestamp: Date.now()
         };
         localStorage.setItem(key, JSON.stringify(cacheObject));
     },
