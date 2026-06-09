@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom/vitest';
+
 if (typeof localStorage === 'undefined' || localStorage === null) {
   const store = new Map();
   globalThis.localStorage = {
